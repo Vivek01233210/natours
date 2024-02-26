@@ -24,6 +24,17 @@ export const app = express();
 
 // 1) GLOBAL MIDDLEWARES
 
+// implement CORS - it will set Access-Control-Allow-Origin header to '*'
+app.use(cors());
+
+// // will allow this origin only
+// app.use(cors({
+//     origin: "https://www.natours.com"
+// }));
+
+// allow non-simple requests like DELETE, PATCH, UPDATE, PUT etc.
+app.options('*', cors());
+
 // Set security HTTP headers
 app.use(helmet());
 
