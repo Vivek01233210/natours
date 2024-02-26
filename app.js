@@ -16,6 +16,7 @@ import globalErrorHandler from './controllers/errorController.js';
 
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import compression from 'compression';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -53,6 +54,9 @@ app.use(hpp({
 
 // serving static files
 app.use(express.static(`${__dirname}/public`));
+
+// compress response bodies for all request
+// app.use(compression());
 
 // some test middleware
 // app.use((req, res, next) => {
